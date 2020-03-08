@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 5000;
 const eraseDatabaseOnSync = false;
 
 db.sync({ force: eraseDatabaseOnSync }).then(async () => {
-  if (eraseDatabaseOnSync) {
-    createUsersWithMessages();
-  }
-  server.listen(PORT, () => console.log(`server is running at ${PORT}`));
+    if (eraseDatabaseOnSync) {
+        createUsersWithMessages();
+    }
+    server.listen(PORT, () => console.log(`server is running at ${PORT}`));
 });
 
 /** Example - SEED DATABASE USER (Only once) */

@@ -1,14 +1,14 @@
 /** Example model */
 const message = (sequelize, DataTypes) => {
-  const Message = sequelize.define('message', {
-    text: DataTypes.STRING
-  });
+    const Message = sequelize.define('message', {
+        text: DataTypes.STRING
+    });
 
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
+    Message.associate = models => {
+        Message.belongsTo(models.User);
+    };
 
-  return Message;
+    return Message;
 };
 
 export default message;

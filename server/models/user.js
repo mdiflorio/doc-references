@@ -1,31 +1,31 @@
 /** Example model */
 const user = (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
-    username: {
-      type: DataTypes.STRING,
-      unique: true
-    }
-  });
-
-  User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
-  };
-
-  User.findByLogin = async login => {
-    let user = await User.findOne({
-      where: { username, login }
+    const User = sequelize.define('user', {
+        username: {
+            type: DataTypes.STRING,
+            unique: true
+        }
     });
 
-    if (!user) {
-      user = await User.findOne({
-        where: { email: login }
-      });
-    }
+    User.associate = models => {
+        User.hasMany(models.Message, { onDelete: 'CASCADE' });
+    };
 
-    return user;
-  };
+    User.findByLogin = async login => {
+        let user = await User.findOne({
+            where: { username, login }
+        });
 
-  return User;
+        if (!user) {
+            user = await User.findOne({
+                where: { email: login }
+            });
+        }
+
+        return user;
+    };
+
+    return User;
 };
 
 export default user;

@@ -6,12 +6,11 @@ import routes from './routes';
 
 /** DB */
 import db from './config/database';
-import models from './models';
 
 /** TEST db */
 db.authenticate()
-  .then(() => console.log('Database connected...'))
-  .catch(err => console.log('Error DB => ', err));
+    .then(() => console.log('Database connected...'))
+    .catch(err => console.log('Error DB => ', err));
 
 const server = express();
 

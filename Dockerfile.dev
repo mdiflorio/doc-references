@@ -26,10 +26,10 @@ WORKDIR /app
 
 COPY package.json package-lock.json* ./
 
-RUN npm install --no-optional && npm cache clean --force
+RUN yarn install --no-optional && yarn cache clean --force
 
 ENV PATH=/app/node_modules/.bin:$PATH
 
 WORKDIR /app/node_app
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "run", "dev"]
