@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import routes from './routes';
+import webhook from './controllers/webhook';
 
 /** DB */
 import db from './config/database';
@@ -17,6 +18,7 @@ const server = express();
 server.use(cors());
 server.use(morgan('dev'));
 server.use(bodyParser.json());
+server.use(webhook);
 
 server.use('/api', routes);
 
